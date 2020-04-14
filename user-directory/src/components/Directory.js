@@ -12,8 +12,7 @@ class Directory extends Component {
     sorted: false,
   };
 
-  // check that the component rendered at least once, and pull in our data
-  // wait for the information to come back
+
   componentDidMount = () => {
     fetch(`https://randomuser.me/api/?results=25&nat=us&inc=name,email,phone,id,picture,dob`)
       .then(res => res.json())
@@ -22,8 +21,7 @@ class Directory extends Component {
       })
   };
 
-  // sort through employees based on search term
-  // check if there is a match and set that to empSort for rendering
+  
   sortEmp = () => {
     let { employees, search } = this.state;
     let empSort = employees.filter(sorted => {
@@ -36,7 +34,7 @@ class Directory extends Component {
     this.setState({ empSort })
   }
 
-  // grab search term, activate sorted  
+   
   startSort = event => {
     this.setState({ search: event.target.value }, () => {
       this.sortEmp();
@@ -53,10 +51,6 @@ class Directory extends Component {
           <h2 className="display-4">
             Employee Directory
           </h2>
-          <p >
-            Hey team! At Barbara's request in the last all employee meeting, I've set up an easy way to quickly find information about our officemates.</p>
-          <p > Search below by name or email to pull up who you are looking for. Any questions or issues, feel free to reach out!
-          </p>
           <Search
             name="search"
             startSort={this.startSort}
@@ -77,7 +71,7 @@ class Directory extends Component {
             </thead>
             <tbody>
 
-              {/* if it's not sorted, map accordingly */}
+              
               {!this.state.sorted ? this.state.employees.map(employee => (
 
 
@@ -93,7 +87,7 @@ class Directory extends Component {
                 />
 
               ))
-                // otherwise map the sorted employees
+                
                 : this.state.empSort.map(employee => (
 
                   <Employees
