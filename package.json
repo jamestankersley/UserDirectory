@@ -2,7 +2,7 @@
   "name": "userdirectory",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -22,7 +22,8 @@
   "bugs": {
     "url": "https://github.com/jamestankersley/UserDirectory/issues"
   },
-  "homepage": "https://github.com/jamestankersley/UserDirectory#readme"
-  
-
+  "homepage": "https://github.com/jamestankersley/UserDirectory#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
